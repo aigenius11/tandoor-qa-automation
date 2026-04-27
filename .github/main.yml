@@ -1,0 +1,58 @@
+name: Tandoor QA Automation Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14.4'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install allure-pytest webdriver-manager
+
+      - name: Run Tests
+        env:
+          # Эти переменные подтянутся из Secrets твоего репозитория
+          TANDOOR_USERNAME: ${{ secrets.TANDOOR_USERNAME }}
+          TANDOOR_PASSWORD: ${{ secrets.TANDOOR_PASSWORD }}
+          CI: 'true'
+        run: |
+          pytest --alluredir=allure-results || true
+
+      - name: Allure Report Action
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+
+      - name: Deploy Allure Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-history
+
+      - name: Update README with status
+        if: always()
+        run: |
+          echo "## Отчет о последнем прогоне" > TEST_SUMMARY.md
+          echo "- Дата: $(date)" >> TEST_SUMMARY.md
+          echo "- Статус: Тесты завершены" >> TEST_SUMMARY.md
+          echo "- [Посмотреть подробный Allure отчет](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)" >> TEST_SUMMARY.md
+          # Этот шаг создаст отдельный файл, который ты сможешь вставить в README
