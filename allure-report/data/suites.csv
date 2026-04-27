@@ -1,0 +1,13 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Проверка безопасности: отказ в доступе с плохим токеном","633","test_api_unauthorized","tests","2026-04-27","passed","2026-04-27","","test_api_client","",""
+"","666","test_shopping_list_integration","tests","2026-04-27","broken","2026-04-27","","test_shopping_e2e","",""
+"
+Полный цикл: Авторизация -> Переход в Shopping -> Создание рецепта ->
+Выбор списка в модальном окне -> Проверка -> Удаление.
+","21456","test_shopping_list_full_cycle","tests","2026-04-27","broken","2026-04-27","","test_shopping","",""
+"Проверка создания рецепта (без проверки ответа, так как нет return)","2420","test_create_recipe","tests","2026-04-27","passed","2026-04-27","","test_api_client","",""
+"Проверка удаления рецепта по ID","615","test_delete_recipe","tests","2026-04-27","passed","2026-04-27","","test_api_client","",""
+"","14904","test_login_and_open_dashboard","tests","2026-04-27","passed","2026-04-27","","test_ui_meal_plan","",""
+"","1180","test_get_recipes_list","tests","2026-04-27","passed","2026-04-27","","test_api_client","",""
+"Шаг №5: Проверка конкретного рецепта по ID из твоего JSON","1982","test_check_specific_recipe","tests","2026-04-27","passed","2026-04-27","","test_api_client","",""
+"","23257","test_create_meal_plan_with_cookies","tests","2026-04-27","broken","2026-04-27","","test_ui_meal_plan","",""

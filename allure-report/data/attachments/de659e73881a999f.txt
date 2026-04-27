@@ -1,0 +1,140 @@
+Ошибка API Tandoor: 200
+Детали: 
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <title>Tandoor</title>
+    <meta name="description" content="Tandoor Recipe Manager">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui, shrink-to-fit=no">
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link rel="manifest" crossorigin="use-credentials" href="/manifest.json">
+
+    <link rel="icon" href="/static/assets/logo_color_svg.d7c2e31a63b7.svg">
+    <link rel="icon" href="/static/assets/logo_color_32.b7d9707eac91.png" sizes="32x32">
+    <link rel="icon" href="/static/assets/logo_color_128.a90db52449d9.png" sizes="128x128">
+    <link rel="icon" href="/static/assets/logo_color_192.c9b9177ff941.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/static/assets/logo_color_180.0fcae5e85a72.png" sizes="180x180">
+
+    <meta name="msapplication-TileColor" content="#ddbf86">
+    <meta name="msapplication-TileImage" content="/static/assets/logo_color_144.f09537dbf142.png">
+
+    <meta name="theme-color" content="#ddbf86">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    
+
+    <style>
+        
+    </style>
+
+</head>
+<body>
+
+<div id="app"></div>
+
+
+<link  rel="stylesheet" href="/static/vue3/assets/ripple-CeGB3d9x.3ba9fc624e34.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VDivider-BeM1gRhl.727c640d6c8d.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VAvatar-Iboor5OF.88434534e171.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VListItem-CoCtg1X0.125a13598de7.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VList-B7SdKPdT.2f772613b402.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/position-D7bmUCsu.f212789ebec5.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VMain-Ddi5Rb5v.a4db289c861a.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VBtn-m1Z7FPBy.f9c87fc5dfa0.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VTextField-j0TpvUy_.42df5f015009.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VOverlay-CKBxglwy.b98729efffd0.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VCard-CSJpUMri.111de28a9d51.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VChip-Hpg9IuyM.8dc9d3e18964.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VCheckboxBtn-CgKG0efP.b4b9ba2feaa9.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VPagination-COmo1aFR.8938be9379ca.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VMenu-DI_OZMqw.5907af14604a.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VSelect-BCbdd2gt.6ab5cdb27d6d.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VTable-Bt-bwlcO.bb0e73462012.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VDataTable-BPX-w6bt.e2dcd566729c.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VDialog-B8fdK25s.3731a3a4a0a0.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VGrid-BdfNOOjS.815f88b21206.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/modulepreload-polyfill-BDhzCYyb.114df5c76e65.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/ModelSelect-KjBiZKdS.64aee4a45de1.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VAlert-7V9O2osm.22f6eac1baeb.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VSheet-B7Vm5FyN.5b804e048dff.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VPicker-CwcEY6OS.97be0236aa36.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VDateInput-Ce6wOZHn.ab6c5c30010f.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VCheckbox-QyI_t4QG.80a3ce408d11.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VNumberInput-D_pvjVZS.175e14fc7ab3.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/VTooltip-wD2djnd2.9d23e43db043.css" />
+<link  rel="stylesheet" href="/static/vue3/assets/main-DWTLZbCv.15b10b65255d.css" />
+<script type="module" crossorigin="" src="/static/vue3/assets/main-C3sMIWhN.6491d74d7858.js"></script>
+<link href="/static/vue3/assets/_plugin-vue_export-helper-qCnhXdNx.c51658f4e737.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/dimensions-CAacCt5I.831412a6da32.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VMain-DmDcGqza.551bf9d2f517.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/modulepreload-polyfill-DGx4t3um.605ee7ccc6fc.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/preload-helper-q813TUYk.da61a49d6ce7.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/MessageStore-TtLSbWG9.d04299f0f8e4.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/ModelSelect-Tabf0nXf.a9a4864eaba6.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/UserPreferenceStore-SercLTGx.6d7e49e16ea2.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/framework-xRjU-xdR.8f43c6741e3f.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VAlert-DfavrmiT.55860c8cec2c.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VAvatar-15Vbd0rl.9bfb7c5200e0.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VDateInput-wW_DQBfP.efa322e2efa6.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VBtn-BRcoakap.4c765aead068.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VCard-Bq64ZEeE.26a3174376af.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VCheckbox-Cc3ltkdo.a0371472049d.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VChip-hzcH42Ca.93c7852e2394.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VTextField-f3IAl3Vy.fcd02c1fe0d7.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/ripple-Deb4p4SC.63c7f61eace4.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VDialog-mmO-3rF9.6ca513454fb7.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VDivider-CdHZX-h5.cdff1222a00c.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VRow-CACcTJXA.02b4d69e7b34.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VContainer-CvSU1esA.860312bae39d.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VSpacer-BVLB1KkY.ecd8e158a0c6.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VList-BBzQm3jy.b77e20ed0d30.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VListItem-C4l_jpiU.bbdd28dda1a2.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VMenu-DgNx-mSU.2dd94f3c0e5e.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VOverlay-BE7BeW7K.78e6f1bca716.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VNumberInput-Dm4bJ7U3.9592def2375d.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/position-BHlUV1_J.3ee740953f55.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VSelect-BBnT3QVa.70080502ca06.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VTable-xKx-hPa_.e89db7d4e856.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/transitions-CmDvzHj9.7eab9f497c28.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/form-BDmwZbNJ.bc449c94314a.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/forwardRefs-DbvHPNQ5.64171d66d1df.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/layout-BaA6DcVW.bfb47970cd6b.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/intersect-CW5uqxtL.bbbd038e9c37.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/RecipeImage-_yCyeFwO.2ecf30e8d55c.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/BtnCopy-DFNEo9qe.24c9875d69ad.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/ModelEditDialog-Co5edhHY.9702ba221eee.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/VClosableCardTitle-DCF5bQIx.648b33dce646.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/useDjangoUrls-B8IuXQBH.671b281bcd78.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/Models-CtoHcZWC.d4a732751b58.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="/static/vue3/assets/Plugins-DQrd9Csz.a7ef74106d46.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+
+<script type="application/javascript">
+    window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js", {scope: document.baseURI}).then(function (reg) {
+            }).catch(function (err) {
+                console.warn('Error whilst registering service worker', err);
+            });
+        } else {
+            console.warn('service worker not in navigator');
+        }
+     });
+</script>
+
+</body>
+</html>
+
+
