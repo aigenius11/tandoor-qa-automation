@@ -98,7 +98,7 @@ def setup_auth(driver):
     # 1. Заходим на страницу логина
     driver.get("https://app.tandoor.dev/login")
 
-    # 2. Выполняем вход (используем твои данные)
+    # 2. Выполняем вход (используем свои данные)
     login_page = LoginPage(driver)
     login_page.login(username="Riccoragazzo77", password="Richman777$$$")
 

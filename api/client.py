@@ -87,7 +87,7 @@ class TandoorAPIClient:
     def get_recipe_by_id(self, recipe_id):
         """Получить конкретный рецепт по его ID"""
         endpoint = f"recipes/{recipe_id}/"
-        # Используем твой базовый метод для запроса
+
         return self._make_request(method="GET", endpoint=endpoint)
 
     def delete_recipe(self, recipe_id):
@@ -106,7 +106,7 @@ class TandoorAPIClient:
         }
 
     def create_meal_plan(self, recipe_id, date):
-        # Данные строго по схеме из вашего OpenAPI файла
+        # Данные строго по схеме из нашего OpenAPI файла
         payload = {
             "recipe": int(recipe_id),
             "date": date,

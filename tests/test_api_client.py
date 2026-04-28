@@ -4,7 +4,7 @@ from api.client import TandoorAPIClient
 
 def test_get_recipes_list(api_client):
     """Шаг №5: Проверка получения списка всех рецептов"""
-    # Используем метод get_all_recipes, который есть в твоем client.py
+
     response = api_client.get_all_recipes()
 
     assert response.status_code == 200, f"Ошибка! Статус: {response.status_code}"
@@ -16,8 +16,7 @@ def test_get_recipes_list(api_client):
 
 def test_check_specific_recipe(api_client, recipe_id):
     """Шаг №5: Проверка конкретного рецепта по ID из твоего JSON"""
-    # Используем метод get_recipe (убедись, что он есть в клиенте или добавь его)
-    # Если метода get_recipe нет, можно вызвать _make_request напрямую
+
     endpoint = f"recipe/{recipe_id}/"
     response = api_client._make_request(method="GET", endpoint=endpoint)
 
