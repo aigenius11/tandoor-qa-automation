@@ -3,3 +3,4 @@ api/.env
 .pytest_cache/
 allure-results/
 pycache/
+.env
