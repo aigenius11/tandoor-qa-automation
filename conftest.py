@@ -3,6 +3,10 @@ import pytest
 import pickle
 import os
 import json
+import allure
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -71,43 +75,46 @@ def recipe_id(created_recipe_ids):
     return created_recipe_ids[0]
 
 
+@pytest.fixture(scope="session")
+def setup_auth(driver):
+    """Фикстура для авторизации и сохранения кук"""
+    with allure.step("Авторизация и сохранение кук"):
+        driver.get("https://app.tandoor.dev/accounts/login/")
+       
+        driver.find_element(By.NAME, "username").send_keys("Riccoragazzo77")
+        driver.find_element(By.NAME, "password").send_keys("Digitalnomadtravelaroundtheworld$$$")
+        driver.find_element(By.XPATH, "//button[@type='submit']").click()
+
+        # Ожидаем успешного входа
+        WebDriverWait(driver, 10).until(EC.url_contains("dashboard"))
+
+        # Получаем и сохраняем куки
+        cookies = driver.get_cookies()
+        with open("user_cookies.pkl", "wb") as f:
+            pickle.dump(cookies, f)
+
+    # Передаем куки в тесты через yield
+    yield cookies
+
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
+    """Хук для скриншотов с исправленными отступами"""
     outcome = yield
     report = outcome.get_result()
 
-    # Если тест упал именно во время выполнения (call)
     if report.when == 'call' and report.failed:
-        # Достаем драйвер из фикстур теста
         driver = item.funcargs.get('driver')
         if driver:
-            # Создаем папку, если её нет
             if not os.path.exists('screenshots'):
                 os.makedirs('screenshots')
 
-                # Сохраняем скриншот с именем теста
-                driver.save_screenshot(f"screenshots/{item.name}.png")
+            screenshot_path = f"screenshots/{item.name}.png"
+            driver.save_screenshot(screenshot_path)
 
-
-@pytest.fixture(scope="function")
-def setup_auth(driver):
-    """Фикстура для выполнения логина и сохранения кук в файл"""
-    cookie_file = "user_cookies.pkl"
-
-    # 1. Заходим на страницу логина
-    driver.get("https://app.tandoor.dev/login")
-
-    # 2. Выполняем вход (используем свои данные)
-    login_page = LoginPage(driver)
-    login_page.login(username="Riccoragazzo77", password="Richman777$$$")
-
-    # 3. Получаем список кук
-    cookies = driver.get_cookies()
-
-    # 4. Сохраняем их в файл через pickle
-    with open(cookie_file, "wb") as f:
-        pickle.dump(cookies, f)
-
-    # Возвращаем именно список кук в тест
-    yield cookies
+            # Прикрепление к Allure
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name=f"Screenshot_{item.name}",
+                attachment_type=allure.attachment_type.PNG
+            )

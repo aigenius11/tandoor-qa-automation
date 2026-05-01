@@ -61,3 +61,34 @@ class ShoppingListPage:
 
         # Финальное подтверждение
         self.wait.until(EC.element_to_be_clickable(self.add_to_shopping_confirm)).click()
+
+    def delete_recipe(self):
+        """Метод для удаления рецепта и подтверждения в модальном окне"""
+
+        # 1. Локатор основной кнопки удаления (красная корзина)
+        # Используем уникальный класс bg-delete из вашего скриншота
+        delete_icon_xpath = "//button[contains(@class, 'bg-delete')]"
+
+        # 2. Локатор кнопки подтверждения во всплывающем окне
+        # Используем текст 'DELETE' и класс text-delete
+        confirm_btn_xpath = "//div[contains(@class, 'v-card-actions')]//button[contains(., 'DELETE')]"
+
+        try:
+            # Нажимаем на корзину
+            delete_btn = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, delete_icon_xpath))
+            )
+            delete_btn.click()
+
+            # Ждем появления модального окна и нажимаем красную кнопку DELETE
+            confirm_btn = WebDriverWait(self.driver, 5).until(
+                EC.element_to_be_clickable((By.XPATH, confirm_btn_xpath))
+            )
+            confirm_btn.click()
+
+            # Ждем, пока модальное окно исчезнет для стабильности следующего теста
+            WebDriverWait(self.driver, 5).until(
+                EC.invisibility_of_element_located((By.XPATH, confirm_btn_xpath))
+            )
+        except Exception as e:
+            print(f"Не удалось удалить рецепт: {e}")
