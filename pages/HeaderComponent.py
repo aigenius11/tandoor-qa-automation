@@ -9,7 +9,7 @@ class HeaderComponent(BasePage):
     USER_NAME_LABEL = (By.CSS_SELECTOR, ".v-list-item-title")
 
     def __init__(self, driver):
-        super().init(driver)
+        super().__init__(driver)
 
     def navigate_to_home_recipes(self):
         """Переход на главную к рецептам через логотип"""

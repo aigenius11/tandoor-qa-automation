@@ -14,7 +14,7 @@ class ShoppingListPage:
         self.recipe_input = (By.CSS_SELECTOR, "input.multiselect-search")
         self.add_button = (By.CSS_SELECTOR, "button.bg-create")
         self.dropdown_trigger = (By.XPATH, "//div[contains(@class, 'v-field__input')]")
-        self.dinner_option = (By.XPATH, "//*[contains(text(), 'Ingridients for dinner')]")
+        self.dinner_option = (By.XPATH, "//*[contains(text(), 'Ingredients for dinner')]")
         self.add_to_shopping_confirm = (By.XPATH, "//button[contains(., 'ADD TO SHOPPING')]")
 
     def open_recipes_tab(self):
@@ -66,7 +66,7 @@ class ShoppingListPage:
         """Метод для удаления рецепта и подтверждения в модальном окне"""
 
         # 1. Локатор основной кнопки удаления (красная корзина)
-        # Используем уникальный класс bg-delete из вашего скриншота
+        # Используем уникальный класс bg-delete из нашего скриншота
         delete_icon_xpath = "//button[contains(@class, 'bg-delete')]"
 
         # 2. Локатор кнопки подтверждения во всплывающем окне

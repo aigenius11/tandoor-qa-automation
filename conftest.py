@@ -32,11 +32,11 @@ def driver():
         options.add_argument("--start-maximized")
 
     # 2. СТАБИЛЬНОСТЬ ОКНА
-    # В headless режиме важно явно задать размер, иначе кнопки "слипнутся"
+
     options.add_argument("--window-size=1920,1080")
 
     # 3. АВТО-УСТАНОВКА ДРАЙВЕРА
-    # Чтобы не мучиться с путями к chromedriver.exe на разных системах
+
     service = Service(ChromeDriverManager().install())
 
     try:
@@ -58,7 +58,7 @@ def api_client():
     return client
 
 
-# 2. Фикстура для загрузки твоих ID (Шаг №3)
+
 @pytest.fixture
 def created_recipe_ids():
     """Читает ID из твоего нового файла created_recipes_id.json"""
@@ -68,7 +68,7 @@ def created_recipe_ids():
     with open(file_path, 'r') as f:
         return json.load(f)
 
-# 3. Фикстура для одного рецепта (Шаг №3)
+
 @pytest.fixture
 def recipe_id(created_recipe_ids):
     """Берет первый ID из списка для тестов на удаление или план питания"""
@@ -108,11 +108,11 @@ def pytest_runtest_makereport(item, _):
         driver = item.funcargs.get('driver')
 
         if driver:
-            # 1. Создаем папку, если её нет (нужен import os)
+
             if not os.path.exists('screenshots'):
                 os.makedirs('screenshots')
 
-            # 2. Делаем скриншот напрямую в Allure (самое важное)
+            #  Делаем скриншот напрямую в Allure
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Screenshot_{item.name}",

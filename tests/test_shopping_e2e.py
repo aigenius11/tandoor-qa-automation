@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 @allure.story("Integration API + UI")
 @allure.title("E2E: Создание плана питания через API и проверка в UI")
 def test_shopping_list_integration(driver, setup_auth, api_client):
-    # Используем ваш актуальный ID рецепта
+
     recipe_id = 140618
     plan_id = None
 
