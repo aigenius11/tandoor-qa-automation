@@ -27,7 +27,7 @@ class TestMealPlanUI:
             # Ждем появления конкретного элемента с именем
             wait = WebDriverWait(driver, 10)
             user_element = wait.until(
-                EC.presence_of_element_with_text((By.XPATH, "//*[contains(text(), 'Vladislav Kochergin')]")))
+                EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'Vladislav Kochergin')]")))
             assert user_element.is_displayed(), "Имя пользователя не отображается на дашборде"
             assert "Vladislav" in driver.page_source, "Текст 'Vladislav' не найден в источнике страницы"
 
@@ -51,6 +51,6 @@ class TestMealPlanUI:
             meal_plan_page.add_plan_on_date(target_date, recipe_name)
 
         with allure.step("Проверка (Assert): отображается ли рецепт в плане"):
-            # Проверка через твой метод Page Object
+
             is_displayed = meal_plan_page.is_plan_displayed(target_date, recipe_name)
             assert is_displayed, f"План с рецептом '{recipe_name}' не найден на дату {target_date}!"

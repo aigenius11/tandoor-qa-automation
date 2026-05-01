@@ -80,7 +80,7 @@ def setup_auth(driver):
     """Фикстура для авторизации и сохранения кук"""
     with allure.step("Авторизация и сохранение кук"):
         driver.get("https://app.tandoor.dev/accounts/login/")
-       
+
         driver.find_element(By.NAME, "username").send_keys("Riccoragazzo77")
         driver.find_element(By.NAME, "password").send_keys("Digitalnomadtravelaroundtheworld$$$")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
@@ -98,21 +98,21 @@ def setup_auth(driver):
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    """Хук для скриншотов с исправленными отступами"""
+def pytest_runtest_makereport(item, _):
     outcome = yield
     report = outcome.get_result()
 
+    # Проверяем, что тест упал во время выполнения
     if report.when == 'call' and report.failed:
+
         driver = item.funcargs.get('driver')
+
         if driver:
+            # 1. Создаем папку, если её нет (нужен import os)
             if not os.path.exists('screenshots'):
                 os.makedirs('screenshots')
 
-            screenshot_path = f"screenshots/{item.name}.png"
-            driver.save_screenshot(screenshot_path)
-
-            # Прикрепление к Allure
+            # 2. Делаем скриншот напрямую в Allure (самое важное)
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Screenshot_{item.name}",

@@ -52,9 +52,14 @@ def test_get_recipes_list_structure(api_client):
 
     with allure.step("Проверка наличия поля 'results' и типа данных"):
         data = response.json()
-        assert "results" in data, "Поле 'results' отсутствует"
-        assert isinstance(data["results"], list), "Результаты должны быть списком"
+        with allure.step("Проверка структуры ответа"):
+            # Проверяем, что это словарь (раз пришел dict)
+            assert isinstance(data, dict), f"Ожидался словарь с данными, но пришел {type(data)}"
 
+            # Ищем ключ, в котором лежат рецепты (обычно это 'results' или 'data')
+            target_key = "results"
+            assert target_key in data, f"Ключ '{target_key}' не найден в ответе. Ключи: {list(data.keys())}"
+            assert isinstance(data[target_key], list), "Список рецептов должен быть массивом"
 
 @allure.story("Recipe Creation")
 @allure.title("Проверка импорта рецепта по внешней ссылке")

@@ -5,7 +5,7 @@ import allure
 from api.client import TandoorAPIClient
 
 
-@pytest.mark.api  # Помечаем как API-инструмент
+@pytest.mark.api
 @allure.epic("Data Preparation")
 @allure.feature("ID Generation")
 def test_generate_ids_automated():

@@ -13,6 +13,7 @@ from pages.shopping_list_page import ShoppingListPage
 def test_shopping_list_full_cycle(driver, setup_auth):
     shopping_page = ShoppingListPage(driver)
     recipe_name = "Паста в аэрогриле"
+    ingredients = ["Макароны", "Помидоры"]
 
     with allure.step("Авторизация через Cookies"):
         driver.get("https://app.tandoor.dev")
@@ -32,17 +33,36 @@ def test_shopping_list_full_cycle(driver, setup_auth):
         with allure.step("Выбор списка в модальном окне и подтверждение"):
             shopping_page.select_dinner_list_and_confirm()
 
-        with allure.step(f"Проверка появления рецепта '{recipe_name}' в списке"):
-            # Ждем появления заголовка рецепта
-            locator = (By.XPATH, f"//*[contains(text(), '{recipe_name}')]")
-            WebDriverWait(driver, 15).until(EC.presence_of_element_located(locator))
 
-        with allure.step("Проверка наличия ингредиентов на странице"):
-            # Реальные ассерты вместо пустых проверок
-            assert "Макароны" in driver.page_source, "Ингредиент 'Макароны' не найден!"
-            assert "Помидоры" in driver.page_source, "Ингредиент 'Помидоры' не найден!"
+
+        with allure.step(f"Критическая проверка: появление рецепта '{recipe_name}' в списке"):
+
+            recipe_locator = (By.XPATH, f"//div[contains(@class, 'v-list-item')]//*[contains(., '{recipe_name}')]")
+
+
+            recipe_element = WebDriverWait(driver, 15).until(
+                EC.visibility_of_element_located(recipe_locator),
+                message=f"FAILED: Рецепт '{recipe_name}' не найден в Shopping List"
+            )
+
+            assert recipe_element.is_displayed(), "Рецепт присутствует в DOM, но не отображается"
+
+        with allure.step("Валидация состава ингредиентов"):
+            # Вместо поиска по всей странице (page_source), проверяем каждый ингредиент отдельно
+            for ing in ingredients:
+                with allure.step(f"Проверка ингредиента: {ing}"):
+                    ing_locator = (By.XPATH, f"//div[contains(@class, 'v-list-item')]//*[contains(., '{ing}')]")
+
+                    # Пытаемся найти конкретный элемент ингредиента
+                    element = WebDriverWait(driver, 10).until(
+                        EC.presence_of_element_located(ing_locator),
+                        message=f"ОШИБКА: Ингредиент '{ing}' не найден!"
+                    )
+
+                    assert element is not None, f"Объект ингредиента {ing} не проинициализирован"
+
+
 
     finally:
         with allure.step("Очистка данных: удаление рецепта из списка"):
-            # Этот блок выполнится даже если тест упадет на проверке
             shopping_page.delete_recipe()

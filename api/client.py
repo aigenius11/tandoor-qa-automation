@@ -34,14 +34,14 @@ class TandoorAPIClient:
 
     # --- РЕЦЕПТЫ ---
     def get_all_recipes(self):
-        return self._make_request("GET", "recipe/recipes/")
+        return self._make_request("GET", "recipe/")
 
     def get_recipe_by_id(self, recipe_id):
-        return self._make_request("GET", f"recipe/recipes/{recipe_id}/")
+        return self._make_request("GET", f"recipe/{recipe_id}/")
 
     def import_recipe(self, recipe_url):
         """Импорт рецепта с обработкой дубликатов"""
-        endpoint = "recipe/recipe-from-source/"
+        endpoint = "recipe/-from-source/"
         data = {"url": recipe_url, "data": "", "bookmarklet": 0}
         response = self._make_request("POST", endpoint, data=data)
 
@@ -54,6 +54,11 @@ class TandoorAPIClient:
                 return recipe_id
         print(f"FAILURE | Не удалось получить ID для: {recipe_url}")
         return None
+
+    def delete_recipe(self, recipe_id):
+        """Удаление рецепта по ID через API"""
+        response = self.session.delete(f"{self.base_url}/api/recipe/{recipe_id}/")
+        return response
 
     # --- ПЛАН ПИТАНИЯ (MEAL PLAN) ---
     def create_meal_plan(self, recipe_id, date):
