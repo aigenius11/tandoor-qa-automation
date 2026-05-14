@@ -21,16 +21,35 @@ class TandoorAPIClient:
         })
 
     def _make_request(self, method, endpoint, data=None):
-        """Вспомогательный метод для всех запросов"""
+        """Вспомогательный метод для всех запросов с корректным отображением в Allure"""
+
+
         with allure.step(f"API Request: {method} {endpoint}"):
             url = f"{self.base_url}/api/{endpoint.lstrip('/')}"
-        try:
-            response = self.session.request(method, url, json=data)
-            print(f"DEBUG: {method} {url} | Status: {response.status_code}")
-            return response
-        except Exception as e:
-            print(f"CRITICAL ERROR: Connection failed {e}")
-            return None
+
+            try:
+
+                response = self.session.request(method, url, json=data)
+
+
+                allure.attach(str(response.status_code), name="Response Status Code")
+
+                print(f"DEBUG: {method} {url} | Status: {response.status_code}")
+
+
+                response.raise_for_status()
+
+                return response
+
+            except Exception as e:
+
+                print(f"CRITICAL ERROR: Connection failed {e}")
+
+
+                allure.attach(str(e), name="Error Detail", attachment_type=allure.attachment_type.TEXT)
+
+                
+                raise e
 
     # --- РЕЦЕПТЫ ---
     def get_all_recipes(self):

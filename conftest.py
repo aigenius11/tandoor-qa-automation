@@ -11,7 +11,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from api.client import TandoorAPIClient
-from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 
 
@@ -81,8 +80,8 @@ def setup_auth(driver):
     with allure.step("Авторизация и сохранение кук"):
         driver.get("https://app.tandoor.dev/accounts/login/")
 
-        driver.find_element(By.NAME, "username").send_keys("Riccoragazzo77")
-        driver.find_element(By.NAME, "password").send_keys("Digitalnomadtravelaroundtheworld$$$")
+        driver.find_element(By.NAME, "username").send_keys(os.getenv("TANDOOR_USERNAME",''))
+        driver.find_element(By.NAME, "password").send_keys(os.getenv("TANDOOR_PASSWORD", ''))
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
 
         # Ожидаем успешного входа

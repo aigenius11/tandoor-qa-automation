@@ -13,9 +13,9 @@ def test_generate_ids_automated():
 
     with allure.step("Инициализация клиента и путей"):
         client = TandoorAPIClient(base_url="https://app.tandoor.dev",
-                                  token="tda_2a266c39_9d3d_4491_aae4_fa95b0f2cd3b")
-        input_file = '../urls.json'
-        output_file = '../created_recipes.json'
+                                  token=os.getenv("TANDOOR_API_TOKEN"),)
+        input_file = 'urls.json'
+        output_file = 'created_recipes.json'
 
     with allure.step(f"Чтение ссылок из {input_file}"):
         assert os.path.exists(input_file), f"Критическая ошибка: Файл {input_file} не найден!"
